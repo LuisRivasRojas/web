@@ -1,0 +1,1330 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+/*INICIO | Estilos del efecto de carga de la pagina*/
+.section_loader{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: #051923;
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.content_carga{
+    display: flex;
+    min-height: 100vh;
+}
+
+.show-loader{
+    display: flex;
+}
+
+
+.content{
+    position: relative;
+}
+
+.content h2{
+    position: absolute;
+    color: white;
+    transform: translate(-50%, -50%);
+    font-size: 8em;
+}
+
+.content h2:nth-child(1){
+    color: transparent;
+    -webkit-text-stroke: 2px #03a9f4;
+}
+
+.content h2:nth-child(2){
+    color: #03a9f4;
+    animation: animate 3s ease-in-out infinite;
+}
+
+
+
+@keyframes animate 
+{
+    0%, 100%
+    {
+        clip-path: polygon(0% 45%, 15% 44%, 32% 50%, 
+        54% 60%, 70% 61%, 84% 59%, 100% 52%, 100% 100%, 0% 100%);
+    }
+    50%
+    {
+        clip-path: polygon(0 60%, 16% 65%, 34% 66%, 
+        51% 62%, 67% 50%, 84% 45%, 100% 46%, 100% 100%, 0% 100%);
+    }
+}
+
+@media screen and (max-width: 800px){
+    .content h2{
+        position: absolute;
+        color: white;
+        transform: translate(-50%, -50%);
+        font-size: 4em;
+    }
+}
+/*FIN | Estilos del efecto de carga de la pagina*/
+
+/*Inicio | Barra de Navegacion*/
+.nav {
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 100px;
+    transition: all 0.5s ease;
+}
+
+.nav p{
+    color: white;
+}
+
+.logo img {
+    height: 90px;
+}
+
+.nav  .navegacion {
+    position: relative;
+}
+
+.nav  .navegacion .navegacion_links a {
+    position: relative;
+    color: black;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 500;
+    margin-left: 30px;
+    transition: 0.2s ease;
+    color: white;
+    padding: 10px 10px 10px 3px;
+    transition: all 300ms ease;
+}
+
+.nav  .navegacion .navegacion_links a:hover{
+    color: rgb(0, 176, 207);
+}
+
+.nav .navegacion .navegacion_links a::after {
+    content: ''; 
+    display: block;
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+    width: 0%; 
+    height: 3px; 
+    background-color: rgb(0, 176, 207); 
+    transition: width 0.3s ease; 
+}
+
+.nav .navegacion .navegacion_links a:hover::after {
+    width: 100%; 
+}
+
+.nav.active{
+    background: #012f42;
+    padding: 2px 20px;
+}
+
+/*Fin | Barra de navegacion*/
+
+/*Inicio | Banner de la pagina*/
+section {
+    padding: 100px 200px;
+}
+
+.home {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: grey;
+}
+
+.home:before {
+    z-index: 777;
+    content: '';
+    position: absolute;
+    background: rgba(1, 1, 1, 0.5);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.home .contenido {
+    z-index: 888;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.home .contenido h1 {
+    background-position: center center;
+    font-size: 4em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    line-height: 95px;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.home .contenido h1 span {
+    font-size: 1.2em;
+    font-weight: 400;
+    color: white;
+}
+
+.home .contenido a {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #067bc3;
+    font-size: 1.5em;
+    padding: 15px;
+    border-radius: 15px;
+    font-weight: 500;
+    transition: all 300ms ease;
+}
+
+.home .contenido a:hover {
+    background-color: #064f7c;
+}
+
+.home video {
+    z-index: 000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*Fin | Banner de la pagina*/
+
+
+/*Inicio responsive de la pagina*/
+/*Inicio | Para dispositivos con un maximo de 1040px*/
+@media (max-width: 1040px) {
+    .nav  {
+        padding: 12px 20px;
+    }
+
+    section {
+        padding: 100px 20px;
+    }
+
+    .nav  .navegacion {
+        display: none;
+    }
+    
+    .nav  .navegacion.active {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(1, 1, 1, 0.5);
+    }
+    
+    .nav  .navegacion .navegacion_links a {
+        color: white;
+        font-size: 1.2em;
+        margin: 20px;
+    }
+    
+ 
+    
+    .nav  .navegacion.active .navegacion_links {
+        background: rgba(1, 1, 1, 0.5);
+        width: 600px;
+        max-width: 600px;
+        margin: 20px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 10px;
+        box-shadow: 0 5px 25px rgb(1 1 1 / 20%);
+    }
+
+    .home .contenido h1 {
+        font-size: 3em;
+    }
+
+    .menu_btn {
+        background: url(/icon/menu.png)no-repeat;
+        background-size: 30px;
+        background-position: center;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .menu_btn.active {
+        z-index: 999;
+        background: url(/icon/menu_x.png) no-repeat;
+        background-size: 25px;
+        background-position: center;
+        transition: all 0.3s ease;
+    }
+}
+
+@media(max-width: 720px){
+    .nav p{
+        text-align: center;
+        font-size: 17px;
+    }
+}
+
+@media(max-width: 450px){
+    .nav p{
+        font-size: 14px;
+    }
+}
+/*Fin | responsive para dispositivoa con un maximo de 1040px*/
+
+/*Inicio | responsibe para dispositivos con maximo de 720px*/
+@media(max-width: 720px) {
+    .home .contenido h1 {
+        line-height: 70px;
+        font-size: 2em;
+        font-weight: 600;
+    }
+
+}
+/*Fin | responsive para dispositivos con maximo de 720px*/
+
+/*Fin del estilos responsive para el banner principal*/
+
+
+/*Incio | Estilos de la seccion de que son los ODS*/
+.Segmento2 {
+    margin-top: 30px;
+    margin-bottom: 70px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.titulo_queSonLosODS {
+    width: 600px;
+    border-bottom: 3px solid #1c8aaa;
+    justify-content: center;
+    margin: auto;
+}
+
+.titulo_queSonLosODS h2 {
+    font-size: 50px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contenedor_queSonODS {
+    align-items: center;
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-between;
+}
+
+.img_queSon img {
+    width: 40em;
+    border-radius: 20px;
+}
+
+.texto_queSon p {
+    margin-left: 20px;
+    font-size: 20px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+/*Fin | Estilos de la seccion de que son los ODS*/
+
+/*Incio | Responsive de la seccion que son los ODS*/
+
+/*Inicio | Responsive para dispositivos con maximo de 1040px*/
+@media(max-width: 1040px) {
+    .contenedor_queSonODS {
+        display: block;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .texto_queSon p {
+        margin-top: 20px;
+        text-align: justify;
+    }
+
+    .img_queSon img {
+        width: 100%;
+    }
+
+}
+/*Fin | Responsive para dispositivos con maximo de 1040px*/
+
+/*Inicio | Responsive para dispostivos con un maximo de 720px*/
+@media(max-width: 720px) {
+    
+    .texto_queSon p {
+        margin-top: 20px;
+        text-align: justify;
+    }
+
+    .titulo_queSonLosODS {
+        width: 300px;
+        border-bottom: 3px solid #1c8aaa;
+        justify-content: center;
+        margin: auto;
+    }
+}
+/*Fin | Responsive para dispostivos con un maximo de 720px*/
+
+/*Inicio | Responsive para dispostivos con un maximo de 400px*/
+@media(max-width:400px) {
+
+    .titulo_queSonLosODS {
+        width: 240px;
+        border-bottom: 3px solid #1c8aaa;
+        justify-content: center;
+        margin: auto;
+    }
+
+    .texto_queSon P{
+        margin-left: 0;
+    }
+}
+/*Fin | Responsive para dispostivos con un maximo de 400px*/
+
+/*Fin | Responsive de la seccion que son los ODS*/
+
+
+/*Inicio de los estilos para los 17 ODS*/
+.titulo_ODS{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.titulo_ODS h2{
+   text-indent: 40px;
+   font-size: 3em;
+}
+
+.titulo_ODS img{
+    width: 170px;
+}
+
+.fila{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 10px 50px;
+}
+
+.carta{
+    position: relative;
+    width: 300px;
+    height: 250px;
+    margin: 20px;
+}
+
+.carta .face{
+    position: absolute;
+    width:100%;
+    height:100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.carta .front{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 15px 10px #0000004e;
+}
+
+.carta .front img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+/*Seccion de los backgrounds para los titulos de las ODS*/
+/*INICIO*/
+.carta .front .title_ODS1 {
+    background-color: #E13232;
+}
+.carta .front .title_ODS1 i{
+    margin-left: 10px;
+    font-size: 25px;
+}
+
+
+.carta .front .title_ODS2 {
+    background-color: #D59F34;
+}
+.carta .front .title_ODS2 i{
+    margin-left: 10px;
+    font-size: 25px;
+}
+
+
+.carta .front .title_ODS3 {
+    background-color: #4DA024;
+}
+.carta .front .title_ODS3 i{
+    margin-left: 10px;
+    font-size: 25px;
+}
+
+
+.carta .front .title_ODS4 {
+    background-color: #CA1212;
+}
+.carta .front .title_ODS4 i{
+    margin-left: 10px;
+    font-size: 25px;
+}
+
+
+.carta .front .title_ODS5 {
+    background-color: #FF4400;
+}
+.carta .front .title_ODS5 i{
+    margin-left: 10px;
+    font-size: 25px;
+}
+
+
+.carta .front .title_ODS6 {
+    background-color: #2CAED9;
+}
+.carta .front .title_ODS6 i{
+    margin-left: 10px;
+    font-size: 25px;
+}
+
+
+.carta .front .title_ODS7 {
+    background-color: #FCB430;
+}
+.carta .front .title_ODS7 i{
+    margin-left: 10px;
+    font-size: 25px;
+}
+
+
+.carta .front .title_ODS8 {
+    background-color: #9E2143;
+}
+.carta .front .title_ODS8 i{
+    margin-left: 10px;
+    font-size: 25px;
+}
+
+
+.carta .front .title_ODS9 {
+    background-color: #FF6600;
+}
+.carta .front .title_ODS9 i{
+    margin-left: 10px;
+    font-size: 25px;
+}
+
+
+.carta .front .title_ODS10 {
+    background-color: #DD146C;
+}
+.carta .front .title_ODS10 i{
+    margin-left: 10px;
+    font-size: 25px;
+}
+
+
+.carta .front .title_ODS11 {
+    background-color: #FC9E1C;
+}
+.carta .front .title_ODS11 i{
+    margin-left: 10px;
+    font-size: 25px;
+}
+
+
+.carta .front .title_ODS12 {
+    background-color: #C18D25;
+}
+.carta .front .title_ODS12 i{
+    margin-left: 10px;
+    font-size: 25px;
+}
+
+
+.carta .front .title_ODS13 {
+    background-color: #397F45;
+}
+.carta .front .title_ODS13 i{
+    margin-left: 10px;
+    font-size: 25px;
+}
+
+
+.carta .front .title_ODS14 {
+    background-color: #007CC3;
+}
+.carta .front .title_ODS14 i{
+    margin-left: 10px;
+    font-size: 25px;
+}
+
+
+.carta .front .title_ODS15 {
+    background-color: #4DC325;
+}
+.carta .front .title_ODS15 i{
+    margin-left: 10px;
+    font-size: 25px;
+}
+
+.carta .front .title_ODS16 {
+    background-color: #0068A4;
+}
+.carta .front .title_ODS16 i{
+    margin-left: 10px;
+    font-size: 25px;
+}
+
+
+.carta .front .title_ODS17 {
+    background-color: #194869;
+}
+.carta .front .title_ODS17 i{
+    margin-left: 10px;
+    font-size: 25px;
+}
+/*Seccion de los backgrounds para los titulos de las ODS*/
+/*FIN*/
+
+.carta .front h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    font-size: 20px;
+   line-height: 1.3;
+   color: white;
+   text-align: center;
+   overflow: hidden;
+}
+
+.carta .back{
+    transform: perspective(600px) rotateY(100deg);
+    background-color: #06446a;
+    padding: 15px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 15px 10px #0000004e;
+}
+
+
+.carta .back h3{
+    font-size: 25px;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+.carta .back .text{
+    border-top: 2px solid #fff;
+    height: 140px;
+    line-height: 24px;
+    margin-bottom: 5px;
+}
+
+.carta .back .text p{
+    margin-top: 10px;
+    text-align: justify;
+}
+
+.carta:hover .front{
+    transform: perspective(600px) rotateY(100deg);
+}
+
+.carta:hover .back{
+    transform: perspective(600px) rotateY(360deg);
+}
+
+/*INICIO Responsive | dispositivos con maximo 1200px*/
+@media (max-width:1280px){
+    .carta{
+        position: relative;
+        width: 380px;
+        height: 350px;
+        margin: 20px;
+    }
+
+    .carta .back h3{
+        font-size: 35px;
+        margin-top: 10;
+        letter-spacing: 1px;
+    }
+
+    .carta .back .text p{
+        font-size: 20px;
+    }
+
+
+    .carta .back .text{
+        border-top: 2px solid #fff;
+        height: 190px;
+        line-height: 30px;
+        margin-bottom: 5px;
+    }
+}
+/*FIN Responsive | dispositivos con maximo 1200px*/
+
+/*INICIO Responsive | dispositivos con maximo 1024px*/
+@media (max-width: 1024px) {
+    .titulo_ODS h2{
+        text-indent: 0;
+     }
+
+    .fila{
+        padding: 20px 100px;
+    }
+    .carta{
+        position: relative;
+        width: 300px;
+        height: 230px;
+        margin: 20px;
+    }
+
+    .carta .back h3{
+        font-size: 19px;
+        margin-top: 10;
+        letter-spacing: 1px;
+    }
+
+    .carta .back .text{
+        border-top: 2px solid #fff;
+        height: 190px;
+        line-height: 25px;
+        margin-bottom: 5px;
+    }
+
+    .carta .back .text p{
+        font-size: 14px;
+    }
+  
+}
+/*FIN Responsive | dispositivos con maximo 1200px*/
+
+/*INICIO Responsive | dispositivos con maximo 720px*/
+@media(max-width: 900px){
+
+    .fila{
+        padding: 0;
+    }
+
+    .titulo_ODS{
+        display: block;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .carta .back h3{
+        font-size: 20px;
+        margin-top: 10;
+        letter-spacing: 1px;
+    }
+
+    .carta .front h3{
+        height: 70px;
+    }
+
+    .carta .back .text{
+        border-top: 2px solid #fff;
+        height: 140px;
+        line-height: 20px;
+        margin-bottom: 5px;
+    }
+    
+}
+/*FIN Responsive | dispositivos con maximo 720px*/
+
+/*INICIO Responsive | dispositivos con maximo 500px*/
+@media(max-width: 500px){
+    .carta .back h3{
+        font-size: 19px;
+        margin-top: 10;
+        letter-spacing: 1px;
+    }
+
+    .carta .back .text{
+        border-top: 2px solid #fff;
+        height: 140px;
+        line-height: 25px;
+        margin-bottom: 5px;
+    }
+    .carta .back .text p{
+        font-size: 14px;
+    }
+}
+/*FIN Responsive | dispositivos con maximo 1200px*/
+
+
+/*INICIO | ESTILOS HISTORIA DE LOS ODS*/
+.container_historiaODS{
+    margin-top: 5em;
+    width: 100%;
+    display: flex;
+   padding-left: 20px;
+   padding-right: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.histotia_imagen{
+    align-items: center;
+    justify-content: center;
+   width: 550px;
+}
+
+.histotia_imagen img{
+    width: 100%;
+    border-radius: 8px;
+}
+
+.text_historia{
+    background-color: rgb(248, 247, 247);
+    margin-left: -30px;
+    padding: 20px;
+    width: 640px;
+    border-radius: 10px;
+    background-position: center center;
+}
+.text_historia h3{
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 29px;
+    line-height: 1.7;
+    border-bottom: 2px solid #1c8aaa;
+}
+
+.text_historia p{
+    font-size: 15px;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+input[type="checkbox"]{
+    display: none;
+}
+
+@media screen and (max-width: 1140px) {
+    .histotia_imagen{
+        width: auto;
+    }
+
+    .text_historia{
+       
+        margin-left: 0;
+       
+    }
+
+}
+
+@media  screen and (max-width: 800px){
+    .text_extra{
+        display: none;
+    }
+
+    input[type="checkbox"]{
+      height: 2em;
+      display: block;
+      appearance: none;
+    }
+
+    label{
+        position: relative;
+        padding: 1em;
+        border-radius: 5px;
+        background-color: #007CC3;
+        color: white;
+        cursor: pointer;
+    }
+
+
+    label:before{
+        content: 'Leer mas';
+    }
+
+    input[type="checkbox"]:checked ~ label::before{
+       content: 'Leer menos';
+    }
+
+    .dots:has(~ input[type="checkbox"]:checked){
+       display: none;
+    }
+
+    .text_extra:has(~ input[type="checkbox"]:checked){
+        display: inline;
+     }
+
+    }
+/*FIN | HISTORIA DE LOS ODS*/
+
+
+
+
+/*INICIO | Estilos del carrusel Importancia de los ODS*/
+
+.Titulo_Importancia h2 {
+    margin-top: 80px;
+    margin-bottom: 10px;
+    padding: 0 20px;
+    font-size: 35px;
+    background-position: center center;
+    text-align: center;
+}
+
+.contenedor_general {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.slide_container {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    margin: 10px;
+}
+
+
+.slide_container .slides {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    clip-path: circle(0% at 0 50%);
+}
+
+
+
+.slide_container .slides.active {
+    clip-path: circle(150% at 0 50%);
+    transition: 2s;
+    transition-property: clip-path;
+}
+
+
+.slide_container .slides img {
+    filter: brightness(0.6);
+    z-index: 1;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.slide_container .slides .text {
+    position: absolute;
+    top: 0;
+    align-items: center;
+    display: grid;
+    place-items: center;
+    padding: 15px 30px;
+}
+
+.slide_container .slides .text h3 {
+    margin-top: 40px;
+    margin-bottom: 60px;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    font-size: 35px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.slide_container .slides .text p {
+    color: white;
+    font-size: 16px;
+    width: 70%;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.slide_container .navigation {
+    z-index: 2;
+    position: absolute;
+    display: flex;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.slide_container .navigation .btn {
+    background: rgba(255, 255, 255, 0.7);
+    width: 12px;
+    height: 12px;
+    margin: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.slide_container .navigation .btn.active {
+    background: rgb(30, 122, 202);
+}
+
+.slide_container .navigation .btn:hover {
+    background-color: rgb(6, 88, 143);
+}
+
+@media(max-width: 820px) {
+    .slide_container {
+        width: 600px;
+        height: 375px;
+    }
+
+    .slide_container .slides .text {
+        padding: 10px 25px;
+    }
+
+    .slide_container .slides .text h3 {
+        margin-top: 20px;
+        margin-bottom: 30px;
+        font-size: 30px;
+    }
+
+    .slide_container .slides .text p {
+        margin-top: 20px;
+        width: 70%;
+        font-size: 15px;
+    }
+
+    .slide_container .navigation {
+        bottom: 40px;
+    }
+
+    .slide_container .navigation .btn {
+        width: 10px;
+        height: 10px;
+        margin: 8px;
+    }
+}
+
+@media(max-width: 620px) {
+    .slide_container {
+        width: 400px;
+        height: 250px;
+    }
+
+    .slide_container .slides .text {
+        padding: 10px 25px;
+    }
+
+    .slide_container .slides .text h3 {
+        margin-bottom: 0px;
+        font-size: 25px;
+    }
+
+    .slide_container .slides .text p {
+        width: 90%;
+        margin-top: 10px;
+        font-size: 13px;
+    }
+
+    .slide_container .navigation {
+        bottom: 30px;
+    }
+
+    .slide_container .navigation .btn {
+        width: 8px;
+        height: 8px;
+        margin: 6px;
+    }
+}
+
+@media(max-width: 420px) {
+    .slide_container {
+        width: 320px;
+        height: 200px;
+    }
+
+    .slide_container .slides .text {
+        padding: 2px 10px;
+    }
+
+    .slide_container .slides .text h3 {
+        margin-bottom: 5px;
+        margin-top: 10px;
+        font-size: 20px;
+    }
+
+    .slide_container .slides .text p {
+        width: 90%;
+        font-size: 11px;
+    }
+
+    .slide_container .navigation {
+        bottom: 20px;
+    }
+}
+
+@media(max-width: 320px) {
+    .slide_container {
+        width: 300px;
+        height: 200px;
+    }
+
+    .slide_container .slides .text {
+        padding: 5px 10px;
+    }
+
+    .slide_container .slides .text h3 {
+        margin-bottom: 0;
+        font-size: 15px;
+    }
+
+    .slide_container .slides .text p {
+        margin-top: 10px;
+        width: 100%;
+        font-size: 9px;
+    }
+
+    .slide_container .navigation {
+        bottom: 55px;
+    }
+}
+/*FIN | Estilos del carrusel Importancia de los ODS*/
+
+
+/*INICIO | Footer de la pagina*/
+.pie_pagina{
+    width: 100%;
+    background-color: #030f15;
+}
+
+.pie_pagina .grupo_1{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 40px;
+    padding: 25px 0px;
+}
+
+.pie_pagina .grupo_1 .box figure{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pie_pagina .grupo_1 .box img{
+    width: 170px;
+}
+
+.pie_pagina .grupo_1 .box h3{
+    color: white;
+    margin-bottom: 35px;
+    font-size: 20px;
+}
+
+.pie_pagina .grupo_1 .box a{
+    text-decoration: none;
+    color: rgba(131, 130, 130, 0.884);
+    margin-bottom: 15px;
+    font-size: 14px;
+    display: flex;
+    transition: all 300ms ease;
+}
+
+.pie_pagina .grupo_1 .box a:hover{
+   transform: translateX(5px);
+   color: #194869;
+}
+
+.pie_pagina .grupo_1 .box i{
+    margin-right: 6px;
+}
+
+.pie_pagina .grupo_1 .box_links h3{
+    color: white;
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+
+.pie_pagina .grupo_1 .links_sociales a{
+   display: inline-block;
+   text-decoration: none;
+   width: 45px;
+   height: 45px;
+   line-height: 45px;
+   color: white;
+   margin-right: 10px;
+   margin-bottom: 10px;
+   transition: all 300ms ease;
+   background-color: rgba(9, 70, 106, 0.5);
+   text-align: center;
+   border-radius: 50%;
+}
+.pie_pagina .grupo_1 .links_sociales a:hover{
+    background-color: #007CC3;
+    transform: scale(1.1);
+}
+
+.pie_pagina .copyrigtht{
+    background-color: #0a2132;
+    padding: 15px 10px;
+    text-align: center;
+    color: white;
+}
+
+@media screen and (max-width: 800px){
+    .pie_pagina .grupo_1{
+        width: 90%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 30px;
+        padding: 35px 0px;
+    }
+}
+/*FIN | Estilos footer de la pagina*/
+
+
+/*INICIO | estilos para el boton de retorno de la pagina*/
+.go-top-container {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 3.3rem;
+    height: 3.3rem;
+    z-index: 1;
+}
+
+.go-top-button {
+    width: 0rem;
+    height: 0rem;
+    background: #0c4561;
+    border-radius: 50%;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    transition: all 0.3s ease-in-out;
+}
+
+.go-top-button i {
+    position: absolute;
+    font-size: 1.7rem;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: white;
+}
+
+.show {
+    z-index: 10;
+}
+
+.show .go-top-button {
+    animation: popup .3s ease-in-out;
+    width: 3.3rem;
+    height: 3.3rem;
+    z-index: 11;
+}
+
+.show i {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+
+@keyframes popup {
+    0% {
+        width: 0rem;
+        height: 0rem;
+    }
+
+    50% {
+        width: 8rem;
+        height: 8rem;
+    }
+
+    100% {
+        width: 6.6rem;
+        height: 6.6rem;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .go-top-container {
+        bottom: 1rem;
+        right: 1rem;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .go-top-button i {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .go-top-container {
+        bottom: 0.8rem;
+        right: 0.8rem;
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .go-top-button i {
+        font-size: 1rem;
+    }
+}
+/*FIN | estilos para el boton de retorno de la pagina*/
+
+.fechaActual{
+    color: white;
+    font-size: 15px;
+}
+.fecha{
+    font-size: 15px;
+}
